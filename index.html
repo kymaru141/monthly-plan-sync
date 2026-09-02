@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>월중계획 자동 등록</title>
+<style>
+  :root{
+    --bg:#FDFCF7; --fg:#23211c; --muted:#6b6659;
+    --line:#e3ded1; --card:#fffefa; --accent:#1A73E8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1a1917; --fg:#eceae4; --muted:#a49e91;
+      --line:#33302a; --card:#211f1c; --accent:#8ab4f8;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;
+    line-height:1.75; font-size:16px;
+  }
+  .wrap{max-width:720px; margin:0 auto; padding:48px 20px 80px}
+  header{border-bottom:1px solid var(--line); padding-bottom:28px; margin-bottom:36px}
+  h1{font-size:1.9rem; margin:0 0 8px; letter-spacing:-.02em}
+  .sub{color:var(--muted); margin:0}
+  h2{font-size:1.15rem; margin:38px 0 12px; letter-spacing:-.01em}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px; padding-left:1.2em}
+  li{margin:6px 0}
+  .card{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:10px; padding:18px 20px; margin:18px 0;
+  }
+  .card p:last-child{margin-bottom:0}
+  a{color:var(--accent)}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:.95rem}
+  th,td{text-align:left; padding:10px 8px; border-bottom:1px solid var(--line); vertical-align:top}
+  th{color:var(--muted); font-weight:600; white-space:nowrap}
+  .scroll{overflow-x:auto}
+  footer{
+    margin-top:56px; padding-top:24px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:.9rem;
+  }
+  code{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:4px; padding:1px 5px; font-size:.9em;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>월중계획 자동 등록</h1>
+  <p class="sub">학교 월중계획 문서를 구글 캘린더와 구글 할 일에 옮겨 주는 프로그램</p>
+</header>
+
+<h2>무엇을 하는 프로그램인가</h2>
+<p>
+학교에서는 매달 월중계획을 만듭니다. 한글 문서나 스프레드시트로 된 표에
+날짜별 일정이 적혀 있습니다. 이것을 개인 일정 관리에 쓰려면 한 건씩 손으로
+옮겨 적어야 합니다. 한 달에 백 건이 넘는 경우도 있습니다.
+</p>
+<p>
+이 프로그램은 그 문서를 읽어 검토용 엑셀 파일을 만들고, 사람이 확인한 뒤
+구글 캘린더와 구글 할 일에 한 번에 등록합니다.
+</p>
+
+<div class="card">
+  <p><strong>쓰는 순서</strong></p>
+  <p>
+    ① 월중계획 파일을 고릅니다 &nbsp;→&nbsp;
+    ② 만들어진 엑셀에서 일정·할 일·제외를 확인합니다 &nbsp;→&nbsp;
+    ③ 등록 버튼을 누릅니다
+  </p>
+</div>
+
+<h2>특징</h2>
+<ul>
+  <li>한글(hwpx)과 엑셀(xlsx) 두 형식을 읽습니다</li>
+  <li>등록 전에 엑셀로 한 번 검토하므로 잘못 올라가는 일이 없습니다</li>
+  <li>잘못 등록했을 때 되돌리는 기능이 있습니다</li>
+  <li>사용자가 고친 분류를 기억해 다음 달에 미리 채워 줍니다</li>
+  <li>부서별로 일정 색을 달리해 캘린더에서 구분됩니다</li>
+</ul>
+
+<h2>어디서 도는가</h2>
+<p>
+사용자의 PC에서 도는 데스크톱 프로그램입니다. 서버가 없습니다.
+문서를 읽는 일도, 엑셀을 만드는 일도 모두 그 PC 안에서 끝납니다.
+바깥으로 나가는 통신은 <strong>구글 캘린더와 구글 할 일에 일정을 넣고 빼는 것</strong>뿐입니다.
+</p>
+
+<h2>구글 계정 권한</h2>
+<p>프로그램이 요청하는 권한과 그 쓰임입니다.</p>
+<div class="scroll">
+<table>
+  <tr>
+    <th>Google Calendar</th>
+    <td>
+      사용자가 고른 캘린더에 일정을 만듭니다.
+      되돌리기를 눌렀을 때 이 프로그램이 만든 일정을 지웁니다.
+      등록할 캘린더 목록을 보여주기 위해 캘린더 목록을 읽습니다.
+    </td>
+  </tr>
+  <tr>
+    <th>Google Tasks</th>
+    <td>
+      기한만 있는 업무를 할 일로 만듭니다.
+      되돌리기를 눌렀을 때 이 프로그램이 만든 할 일을 지웁니다.
+    </td>
+  </tr>
+</table>
+</div>
+<p>
+지우는 대상은 <strong>이 프로그램이 등록한 것으로 기록에 남아 있는 항목</strong>뿐입니다.
+지우기 전에 구글에서 제목을 다시 읽어 대조하고, 사용자가 손으로 고친 항목은
+건너뜁니다.
+</p>
+
+<h2>비용과 배포</h2>
+<p>
+무료입니다. 대가를 받지 않으며 사용 인원에 제한을 두지 않습니다.
+</p>
+
+<h2>개인정보처리방침</h2>
+<p>
+이 프로그램이 구글 계정 데이터를 어떻게 다루는지는
+<a href="privacy.html">개인정보처리방침</a>에 적혀 있습니다.
+</p>
+
+<h2>문의</h2>
+<p>
+제작 구용모 · <a href="mailto:kymaru141@gmail.com">kymaru141@gmail.com</a>
+</p>
+
+<footer>
+  <p>© 2026 구용모. 개인이 만들어 무상으로 배포하는 프로그램입니다.</p>
+</footer>
+
+</div>
+</body>
+</html>
