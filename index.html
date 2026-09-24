@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>월중계획 자동 등록</title>
+<title>월중계획 자동 등록 · Monthly Plan Sync</title>
 <style>
   :root{
     --bg:#FDFCF7; --fg:#23211c; --muted:#6b6659;
@@ -55,6 +55,42 @@
 <header>
   <h1>월중계획 자동 등록</h1>
   <p class="sub">학교 월중계획 문서를 구글 캘린더와 구글 할 일에 옮겨 주는 프로그램</p>
+
+  <div lang="en">
+  <h2>English</h2>
+  <p>
+  <strong>월중계획 자동 등록 (Monthly Plan Sync)</strong> is a free desktop
+  application for school staff in Korea. Monthly Plan Sync reads a school’s
+  monthly plan document (.hwpx or .xlsx) on the user’s own computer, produces an
+  editable spreadsheet so the user can review and correct each entry, and then
+  creates the confirmed entries in the user’s Google Calendar and Google Tasks.
+  It also lets the user undo a registration, removing only the entries it
+  created.
+  </p>
+  <p>
+  The application has no server. It runs entirely on the user’s computer. The
+  only outbound network traffic is to the Google Calendar and Google Tasks APIs.
+  </p>
+  <p><strong>How it uses Google data</strong></p>
+  <ul>
+    <li><code>calendar.calendarlist.readonly</code> — choosing a destination
+    calendar: lists the user’s calendars so the user can pick which one to write to.</li>
+    <li><code>calendar.events</code> — creating events on the chosen calendar,
+    checking for duplicates, and undoing a registration, which requires delete
+    access. It deletes only the events it created.</li>
+    <li><code>tasks</code> — creating a dedicated task list and tasks, and
+    deleting on undo only the tasks it created.</li>
+  </ul>
+  <p>
+  Existing events and tasks are read only for the duplicate check before
+  registering and the title comparison before undoing, and only their date and
+  title, for the period being registered. They are not sent anywhere and not stored.
+  </p>
+  <p>
+  <a href="https://kymaru141.github.io/monthly-plan-sync/privacy.html">Privacy Policy</a>
+  · Contact <a href="mailto:kymaru141@gmail.com">kymaru141@gmail.com</a>
+  </p>
+  </div>
 </header>
 
 <h2>무엇을 하는 프로그램인가</h2>
@@ -90,7 +126,7 @@
 <p>
 사용자의 PC에서 도는 데스크톱 프로그램입니다. 서버가 없습니다.
 문서를 읽는 일도, 엑셀을 만드는 일도 모두 그 PC 안에서 끝납니다.
-바깥으로 나가는 통신은 <strong>구글 캘린더와 구글 할 일에 일정을 넣고 빼는 것</strong>뿐입니다.
+바깥으로 나가는 통신은 <strong>구글 캘린더와 구글 할 일에 일정을 넣고 빼는 것과, 그에 앞서 필요한 만큼 읽는 것</strong>뿐입니다.
 </p>
 
 <h2>구글 계정 권한</h2>
@@ -98,22 +134,34 @@
 <div class="scroll">
 <table>
   <tr>
-    <th>Google Calendar</th>
+    <th>Google Calendar<br>캘린더 목록 읽기</th>
+    <td>
+      등록할 캘린더를 사용자가 고를 수 있도록 캘린더 목록을 읽습니다.
+    </td>
+  </tr>
+  <tr>
+    <th>Google Calendar<br>일정</th>
     <td>
       사용자가 고른 캘린더에 일정을 만듭니다.
+      등록 전 겹침 확인과 되돌리기 전 대조를 위해, 그 기간 기존 일정의 날짜와 제목을 읽습니다.
       되돌리기를 눌렀을 때 이 프로그램이 만든 일정을 지웁니다.
-      등록할 캘린더 목록을 보여주기 위해 캘린더 목록을 읽습니다.
     </td>
   </tr>
   <tr>
     <th>Google Tasks</th>
     <td>
       기한만 있는 업무를 할 일로 만듭니다.
+      할 일 목록을 읽고, 없으면 전용 목록을 하나 만듭니다.
+      등록 전 겹침 확인과 되돌리기 전 대조를 위해, 그 기간 기존 할 일의 마감일과 제목을 읽습니다.
       되돌리기를 눌렀을 때 이 프로그램이 만든 할 일을 지웁니다.
     </td>
   </tr>
 </table>
 </div>
+<p>
+캘린더 전체 권한은 요청하지 않습니다. 기존 일정 · 할 일은 위 두 확인에만 읽으며,
+바깥으로 보내지 않고 저장하지 않습니다.
+</p>
 <p>
 지우는 대상은 <strong>이 프로그램이 등록한 것으로 기록에 남아 있는 항목</strong>뿐입니다.
 지우기 전에 구글에서 제목을 다시 읽어 대조하고, 사용자가 손으로 고친 항목은
