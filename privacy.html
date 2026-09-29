@@ -56,7 +56,7 @@
 
 <header>
   <h1>개인정보처리방침</h1>
-  <p class="sub">월중계획 자동 등록 · 시행일 2026년 9월 24일</p>
+  <p class="sub">월중계획 자동 등록 · 시행일 2026년 9월 29일(처음 시행 2026년 9월 24일)</p>
 </header>
 
 <p>
@@ -170,6 +170,14 @@
     <th>설정·학습 파일</th>
     <td>사용자가 고친 분류와 부서별 색 설정.</td>
   </tr>
+  <tr>
+    <th>실행 기록(로그)</th>
+    <td>프로그램이 한 일과 오류를 적은 기록. 문제가 생겼을 때 사용자가 확인하는 용도입니다.</td>
+  </tr>
+  <tr>
+    <th>사용 통계</th>
+    <td>달마다 등록한 건수와 사용자가 분류를 고친 횟수 같은 숫자.</td>
+  </tr>
 </table>
 </div>
 <p>
@@ -177,14 +185,50 @@
 전송되지 않습니다.
 </p>
 
-<h2>4. 제3자 제공</h2>
+<h2>4. 정보의 보호</h2>
+<p>이 프로그램은 구글 사용자 데이터를 다음과 같이 보호합니다.</p>
+<ul>
+  <li>
+    <strong>주고받을 때의 암호화</strong> — 구글과의 모든 통신은 구글이 제공하는 공식
+    클라이언트 라이브러리를 거쳐 HTTPS(TLS)로 암호화됩니다. 암호화되지 않은 통신은 쓰지 않습니다.
+  </li>
+  <li>
+    <strong>비밀번호를 다루지 않음</strong> — 로그인은 구글의 로그인 화면에서 사용자가 직접
+    합니다(OAuth 2.0). 이 프로그램은 구글 계정 비밀번호를 보거나 저장하지 않으며,
+    사용자가 허락한 범위의 인증 토큰만 받습니다.
+  </li>
+  <li>
+    <strong>최소 권한</strong> — 기능에 꼭 필요한 세 권한만 요청합니다(2절). 캘린더 전체 권한은
+    요청하지 않습니다.
+  </li>
+  <li>
+    <strong>서버 없음 · 제작자 접근 없음</strong> — 인증 토큰과 모든 기록은 사용자의 PC에만
+    있습니다. 제작자가 운영하는 서버가 없으므로 제작자를 포함한 누구도 이 정보에 접근할 수
+    없고, 사람이 사용자 데이터를 읽지 않습니다.
+  </li>
+  <li>
+    <strong>PC 안에서의 보호</strong> — 인증 토큰과 기록 파일은 그 PC를 쓰는 사용자의 파일로
+    저장되며, 그 PC의 Windows 계정 보호를 받습니다. 여러 사람이 함께 쓰는 PC라면 사용을 마친 뒤
+    <code>token.json</code>을 지우거나 아래 7절의 방법으로 권한을 거두기를 권합니다.
+  </li>
+  <li>
+    <strong>보관 기간</strong> — 파일은 사용자가 지울 때까지 PC에 남습니다. 프로그램 폴더를 지우면
+    모두 함께 사라집니다. 구글에서 읽은 기존 일정과 할 일은 확인에만 쓰고 저장하지 않습니다(2절).
+  </li>
+  <li>
+    <strong>유출이 걱정될 때</strong> — 구글 계정의 타사 앱 권한에서 이 프로그램의 권한을 삭제하면
+    저장된 토큰이 곧바로 쓸 수 없게 됩니다(7절).
+  </li>
+</ul>
+
+<h2>5. 제3자 제공</h2>
 <p>
 <strong>없습니다.</strong> 이 프로그램은 구글 API 외의 어떤 외부 서비스와도 통신하지
 않습니다. 광고, 통계, 추적 기능이 포함되어 있지 않습니다. 사용자 데이터를
 판매하거나 다른 목적에 사용하지 않습니다.
 </p>
 
-<h2>5. 구글 API 제한 사용 정책 준수</h2>
+<h2>6. 구글 API 제한 사용 정책 준수</h2>
 <p>
 이 프로그램의 구글 사용자 데이터 사용은
 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API 서비스 사용자 데이터 정책</a>을
@@ -202,7 +246,7 @@ user’s own computer. No user data is transmitted to, stored on, or read by the
 developer or any third party.
 </p>
 
-<h2>6. 권한을 거두는 방법</h2>
+<h2>7. 권한을 거두는 방법</h2>
 <ul>
   <li>
     프로그램 폴더의 <code>token.json</code>을 지우면 저장된 인증이 사라집니다.
@@ -222,12 +266,12 @@ developer or any third party.
 직접 지우시면 됩니다.
 </p>
 
-<h2>7. 방침의 변경</h2>
+<h2>8. 방침의 변경</h2>
 <p>
 내용이 바뀌면 이 페이지에 고쳐 올리고 시행일을 갱신합니다.
 </p>
 
-<h2>8. 문의</h2>
+<h2>9. 문의</h2>
 <p>
 제작 구용모 · <a href="mailto:kymaru141@gmail.com">kymaru141@gmail.com</a>
 </p>
@@ -270,6 +314,31 @@ duplicate check before registering and the title comparison before undoing —
 and only their date and title, for the period being registered. They are not
 sent anywhere and not stored. The only thing kept on the user’s computer is the
 record of the entries this application itself created.
+</p>
+
+<h3 class="en" style="color:var(--muted)">Data protection</h3>
+<p class="en">
+All communication with Google is encrypted in transit with HTTPS (TLS) through
+Google’s official client libraries. Sign-in happens on Google’s own sign-in page
+(OAuth 2.0); the application never sees or stores the user’s Google password and
+receives only a token limited to the scopes the user approved. Only the three
+scopes needed for the features are requested; the full <code>calendar</code>
+scope is not.
+</p>
+<p class="en">
+There is no server. The authorization token and all records stay on the user’s
+own computer, as files of that Windows user, protected by the operating system’s
+account security. Neither the developer nor anyone else can access them, and no
+human reads user data. On a shared computer, users are advised to delete
+<code>token.json</code> after use or revoke access (section 7).
+</p>
+<p class="en">
+Files remain until the user deletes them; deleting the program folder removes
+all of them. Existing events and tasks read from Google are used only for the
+two checks above and are not stored. If a token may have been exposed, revoking
+the application’s access at
+<a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>
+makes the stored token unusable immediately.
 </p>
 
 <footer>
