@@ -56,7 +56,7 @@
 
 <header>
   <h1>개인정보처리방침</h1>
-  <p class="sub">월중계획 자동 등록 · 시행일 2026년 9월 29일(처음 시행 2026년 9월 24일)</p>
+  <p class="sub">월중계획 자동 등록 · 시행일 2026년 10월 1일(처음 시행 2026년 9월 24일)</p>
 </header>
 
 <p>
@@ -144,12 +144,12 @@
 </p>
 
 <h2>3. 정보가 저장되는 곳</h2>
-<p>모두 사용자의 PC, 프로그램 폴더 안입니다.</p>
+<p>모두 사용자의 PC 안입니다. 로그인 정보와 사용 통계는 이 PC의 Windows 사용자 영역에, 나머지는 프로그램 폴더에 있습니다.</p>
 <div class="scroll">
 <table>
   <tr>
-    <th><code>token.json</code></th>
-    <td>구글 인증 토큰. 매번 로그인하지 않도록 보관합니다.</td>
+    <th>로그인 정보(토큰)</th>
+    <td>구글 인증 토큰. 매번 로그인하지 않도록 Windows 암호화로 잠가 이 PC의 Windows 사용자 영역에 보관합니다(프로그램 폴더 밖).</td>
   </tr>
   <tr>
     <th><code>credentials.json</code></th>
@@ -207,13 +207,20 @@
     없고, 사람이 사용자 데이터를 읽지 않습니다.
   </li>
   <li>
-    <strong>PC 안에서의 보호</strong> — 인증 토큰과 기록 파일은 그 PC를 쓰는 사용자의 파일로
-    저장되며, 그 PC의 Windows 계정 보호를 받습니다. 여러 사람이 함께 쓰는 PC라면 사용을 마친 뒤
-    <code>token.json</code>을 지우거나 아래 7절의 방법으로 권한을 거두기를 권합니다.
+    <strong>PC 안에서의 보호</strong> — 기록 파일은 그 PC를 쓰는 사용자의 파일로 저장되며,
+    그 PC의 Windows 계정 보호를 받습니다. 여러 사람이 함께 쓰는 PC라면 사용을 마친 뒤
+    [계정 바꾸기]를 누르거나 아래 7절의 방법으로 권한을 거두기를 권합니다.
   </li>
   <li>
-    <strong>보관 기간</strong> — 파일은 사용자가 지울 때까지 PC에 남습니다. 프로그램 폴더를 지우면
-    모두 함께 사라집니다. 구글에서 읽은 기존 일정과 할 일은 확인에만 쓰고 저장하지 않습니다(2절).
+    <strong>로그인 정보의 암호화 저장</strong> — 구글 로그인 정보(토큰)는 Windows 암호화로
+    잠가 이 PC의 해당 Windows 사용자 영역에만 저장하며, 다른 PC나 다른 사용자는 이를 풀 수
+    없습니다. 프로그램 폴더에는 저장하지 않으므로 폴더를 복사해도 함께 복사되지 않고,
+    [계정 바꾸기]를 누르거나 프로그램을 제거하면 삭제됩니다.
+  </li>
+  <li>
+    <strong>보관 기간</strong> — 파일은 사용자가 지울 때까지 PC에 남습니다. 프로그램을 제거하면
+    프로그램 폴더의 파일과 로그인 정보가 지워지고, 사용 통계는 지울지 묻습니다. 구글에서 읽은
+    기존 일정과 할 일은 확인에만 쓰고 저장하지 않습니다(2절).
   </li>
   <li>
     <strong>유출이 걱정될 때</strong> — 구글 계정의 타사 앱 권한에서 이 프로그램의 권한을 삭제하면
@@ -249,7 +256,7 @@ developer or any third party.
 <h2>7. 권한을 거두는 방법</h2>
 <ul>
   <li>
-    프로그램 폴더의 <code>token.json</code>을 지우면 저장된 인증이 사라집니다.
+    프로그램에서 [계정 바꾸기]를 누르면 저장된 인증이 사라집니다.
   </li>
   <li>
     구글 계정의
@@ -257,7 +264,7 @@ developer or any third party.
     「월중계획 자동 등록」의 액세스 권한을 삭제하면 연결이 완전히 끊어집니다.
   </li>
   <li>
-    프로그램 폴더를 지우면 등록내역과 설정을 포함한 모든 파일이 함께 사라집니다.
+    프로그램을 제거하면 등록내역과 설정을 포함한 프로그램 폴더의 파일과 로그인 정보가 지워집니다(사용 통계는 지울지 묻습니다).
   </li>
 </ul>
 <p>
@@ -328,13 +335,17 @@ scope is not.
 <p class="en">
 There is no server. The authorization token and all records stay on the user’s
 own computer, as files of that Windows user, protected by the operating system’s
-account security. Neither the developer nor anyone else can access them, and no
-human reads user data. On a shared computer, users are advised to delete
-<code>token.json</code> after use or revoke access (section 7).
+account security. The sign-in token is additionally encrypted with Windows data
+protection and stored in that Windows user’s profile, not in the program folder;
+it cannot be decrypted on another computer or by another user, and it is not
+copied when the program folder is copied. Neither the developer nor anyone else
+can access these files, and no human reads user data. On a shared computer, users
+are advised to press [Switch account] after use or revoke access (section 7).
 </p>
 <p class="en">
-Files remain until the user deletes them; deleting the program folder removes
-all of them. Existing events and tasks read from Google are used only for the
+Files remain until the user deletes them. Uninstalling the program removes the
+files in the program folder and the sign-in token, and asks whether to delete the
+usage statistics; [Switch account] also deletes the token. Existing events and tasks read from Google are used only for the
 two checks above and are not stored. If a token may have been exposed, revoking
 the application’s access at
 <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>
